@@ -1,0 +1,42 @@
+.review {
+    margin:0;
+}
+header {
+    background-color: #2980B9;
+    padding: 2rem 10rem;
+    height: 10rem;
+}
+h1, p {
+    color: #fff;
+    margin: 0;
+}
+h1.title {
+    float: left;
+    width: 75%;
+}
+.add-participant {
+    float: right;
+    width: 20%;
+    background: #003869;
+}
+section {
+    margin: 2rem 10rem;
+}
+.form-control  {
+    width:50%
+}
+.col-right {
+    float:left;
+    width:40rem;
+}
+.col-left {
+    float:left;
+    width:40%;
+    padding: .5rem;
+}
+span {
+    font-weight:bold;
+}
+.form-group {
+    margin: 30px;
+}

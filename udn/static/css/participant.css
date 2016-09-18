@@ -1,0 +1,17 @@
+.participants {
+    margin:0;
+}
+header {
+    background-color: #2980B9;
+    padding: 2rem 10rem;
+}
+h1, p {
+    color: #fff;
+    margin: 0;
+}
+section {
+    margin: 2rem 10rem;
+}
+.form-control  {
+    width:50%
+}

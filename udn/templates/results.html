@@ -1,0 +1,51 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/results.css' %}">
+<div class="review">
+    <header>
+        <h1 class="title">List of All Participants</h1>
+        <a href="/participant" class="btn btn-primary add-participant">Add New Participant</a>
+    </header>
+    <section>
+        {% for p in participants %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="col-left">
+                    <span>{{ p.name }} </span>
+                    {% if p.age %}
+                        <span>, {{p.age}}</span>
+                    {% endif %}
+                    {% if p.any_siblings %}
+                        <span>, {{p.any_siblings}}</span>
+                    {% else %}
+                        <span>, False</span>
+                    {% endif %}
+                    {% if p.known_env_exposures %}
+                        <span>, {{p.known_env_exposures}}</span>
+                    {% endif %}
+                    {% if p.known_genetic_mutations %}
+                        <span>, {{p.known_genetic_mutations}}</span>
+                    {% endif %}
+                </div>
+                <div class="col-right">
+                    <input type="hidden" name="id" value="{{ p.id }}">
+                    <select id="id_review" class="form-control" name="review" onchange="submit()">
+                        {% for value, text in form.fields.review.choices %}
+                        <option value="{{ value }}"
+                                {% if p.review == text %} selected="selected" {% endif %}>
+                            {{ text }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br/>
+            </div>
+        </form>
+        {% endfor %}
+    </section>
+
+</div>
+
+

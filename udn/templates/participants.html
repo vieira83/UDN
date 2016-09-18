@@ -1,0 +1,26 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/participant.css' %}">
+<div class="participants">
+    <header>
+        <h1>New Participant</h1>
+        <p>Please fill out and submit the form below to be considered for the UDN Test</p>
+    </header>
+    <section>
+        <form action="/participant/" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-control-sm  fieldWrapper">
+                    {% bootstrap_field field %}
+                    {% if field.help_text %}
+                    <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <input type="submit" value="Submit" class="btn btn-primary"/>
+            </div>
+        </form>
+    </section>
+</div>
